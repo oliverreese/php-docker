@@ -1,0 +1,6 @@
+{
+    "name": "oliverreese/phpdocker",
+    "require": {
+        "phpunit/phpunit": "^9.2"
+    }
+}
