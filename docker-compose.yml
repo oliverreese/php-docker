@@ -4,7 +4,7 @@ services:
   #PHP Service
   app:
     build:
-      context: .
+      context: app
       dockerfile: Dockerfile
     image: oliverreese.de/php
     container_name: app
@@ -15,8 +15,8 @@ services:
       SERVICE_TAGS: dev
     working_dir: /var/www
     volumes:
-      - ./:/var/www
-      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ./app/www:/var/www
+      - ./app/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
 
@@ -30,7 +30,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./:/var/www
+      - ./app/www:/var/www
       - ./nginx/conf.d/:/etc/nginx/conf.d/
     networks:
       - app-network
